@@ -17,7 +17,7 @@
     <h1>Iniciando estudos com DOM</h1>
     <p>Aqui vai o resultado</p>
     <p>Aprendendo a usar <strong>DOM</strong> em JavaScript</p>
-    <div name="msg">Clique em mim</div>
+    <div id="msg">Clique em mim</div>
 
     <script>
         var p1 = document.getElementsByTagName('p') [1]
@@ -25,8 +25,8 @@
         /*var d = window.document.getElementById('msg')
         d.style.background = 'green'
         d.innerHTML = 'Dale colorado'*/
-        var d = window.document.getElementsByName('msg')[0]
-        d.innerText = 'Olá'
+        var d = window.document.querySelector('div#msg')
+        d.style.color = 'Red'
 
         
         
