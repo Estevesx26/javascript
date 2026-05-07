@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex009</title>
+</head>
+<body>
+    <h1>Sistemas de nacionalidades</h1>
+    <label for="nac">Nacionalidades: </label>
+    <input type="text" name="nacionalidades" id="nac">
+    <input type="button" value="Enviar" onclick="enviar()">
+
+    <div id="res">
+
+    </div>
+
+    <script>
+        var nac = window.document.getElementById('nac')
+        var res = window.document.getElementById('res')
+        var txt = (nac.value)
+        res.innerHTML = `Sua nacionalidade é ${nac}.`
+
+        function enviar(){
+            if(nac == 'Brasileiro')
+                res.innerHTML = ('Você é Brasileiro')
+        }
+    </script>
+</body>
+</html>
