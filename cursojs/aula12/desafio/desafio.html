@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 1 JS</title>
+</head>
+<style>
+
+    *{
+        margin: 0px;
+        padding: 0px;
+
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #layout{
+        background-color: burlywood;
+        height: 100vh;
+        width: 100vw;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1{
+        margin-bottom: 20px;
+    }
+
+    .container{
+        background-color: white;
+        height: 80%;
+        width: 80%;
+
+        border-radius: 20px;
+        box-shadow: 10px 10px 10px 3px rgba(0, 0, 0, 0.334);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    div#img{
+        height: 400px;
+        width: 400px;
+
+        background-image: url('');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        border-radius: 50%;
+    }
+
+    p{
+        margin-top: 20px;
+        padding-bottom: 20px;
+    }
+</style>
+<body>
+    <main id="layout">
+
+        <h1>Hora do Dia</h1>
+
+        <div class="container">
+
+            <p id="txt"></p>
+
+            <div id="img">
+                
+            </div>
+        </div>
+
+        <p>@CursoemVídeo</p>
+    </main>
+
+    <script>
+        var txt = window.document.getElementById('txt')
+        var img = window.document.getElementById('img')
+
+        var agora = new Date()
+        var hora = agora.getHours()
+
+        function hours(){
+
+            if(hora >= 6 && hora <= 11){
+                txt.innerText = `Agora são ${hora} hrs.`
+
+                img.style.backgroundImage = "url('imagens/manha.jpg')";
+            } else if(hora >=12 && hora <=16){
+                txt.innerText = `Agora são ${hora} hrs.`
+
+                img.style.backgroundImage = "url('imagens/dia.jpg')";
+            } else if(hora >= 17 && hora <= 18){
+                txt.innerText = `Agora são ${hora} hrs.`
+
+                img.style.backgroundImage = "url('imagens/tarde.jpg')";
+            } else if(hora >=19 && hora <=23){
+                txt.innerText = `Agora são ${hora} hrs.`
+
+                img.style.backgroundImage = "url('imagens/noite.jpg')";
+            } else if(hora >=0 && hora <=5){
+                txt.innerText = `Agora são ${hora} hrs.`
+
+                img.style.backgroundImage = "url('imagens/madrugada.jpg')";
+            }
+
+        }
+
+        hours()
+        
+    </script>
+</body>
+</html>
