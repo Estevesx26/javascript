@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #layout{
+            background-color: aqua;
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #home{
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .container{
+            margin-bottom: 15px;
+        }
+
+        #enviar{
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <main id="layout">
+        <h1>Verificador de Idade</h1>
+        <section id="home">
+            <div class="container">
+                <label for="data" class="container">Ano de nascimento:</label>
+                <input type="number" name="data" id="data">
+            </div>
+
+            <div class="container">
+                <label for="sexo" class="container">Sexo:</label>
+                <input type="radio" name="sexo" id="masculino">Masculino
+                <input type="radio" name="sexo" id="feminino">Feminino
+            </div>
+
+            <input type="submit" value="Vereficar" id="enviar" onclick="clicar()">
+
+            <p id="txt">Preencha os dados acima para ver o resultado !</p>
+        </section>
+
+        <p>@CursoemVídeo</p>
+    </main>
+
+    <script>
+        var n1 = window.document.getElementById('data')
+        var n1 = Number(n1.value)
+
+        var sexo = window.document.getElementById('sexo')
+        var txt = window.document.getElementById('txt')
+
+        var ano = new Date()
+        var n2 = ano.getFullYear()
+        
+        function clicar(){
+            var n1 = Number(data.value)
+            var soma = n2 - n1
+
+            if(soma){
+                txt.innerText = `Você tem ${soma} anos!`
+            }
+        }
+    </script>
+</body>
+</html>
