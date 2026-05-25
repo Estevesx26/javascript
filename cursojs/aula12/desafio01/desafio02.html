@@ -77,9 +77,11 @@
             var n1 = Number(data.value)
             var soma = n2 - n1
 
-            if(soma){
-                txt.innerText = `Você tem ${soma} anos!`
-            }
+            if(n1 > n2){
+            window.alert('ERRO! Verifique os dados e tente novamente!')
+        } else {
+            txt.innerText = `Você tem ${soma} anos!`
+        }
         }
     </script>
 </body>
