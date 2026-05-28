@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sus</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        #layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+
+            height: 500px;
+            width: 400px;
+
+            border-radius: 20px;
+            background-color: #becf2a;
+        }
+
+        fieldset {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #9B7042;
+            padding: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        .img {
+            background-image: url(img/caramelo.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            height: 150px;
+            width: 250px;
+
+            margin-bottom: 20px;
+        }
+
+        .nome,
+        .lista {
+            display: flex;
+            align-items: center;
+        }
+
+        input {
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: bold;
+            padding-left: 10px;
+
+            width: 90px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .enviar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #enviar {
+            width: 50%;
+        }
+
+        p{
+            margin: 20px;
+            display: none;
+        }
+
+        strong{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="layout">
+        <section class="container">
+            <h1>SUS</h1>
+            <div class="img">
+
+            </div>
+
+            <div id="obs">
+                <h2>Preencha o formulário</h2>
+                <fieldset>
+                    <legend>Dados Pessoais</legend>
+                    <div class="form">
+                        <div class="nome">
+                            <label for="nome">NOME: </label>
+                            <input type="text" name="nome" id="nome" maxlength="35" minlength="3" pattern="[^0-9]" required>
+                        </div>
+                        <div class="lista">
+                            <label for="lista">SINTOMAS:</label>
+                            <input type="text" list="opcoes" id="lista">
+                            <datalist id="opcoes">
+                                <option value="Dor de cabeça">
+                                <option value="Enjoo">
+                                <option value="Febre">
+                                <option value="Vômito">
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="enviar"><input type="submit" value="Enviar" id="enviar" onclick="enviar()"></div>
+                </fieldset>
+
+            </div>
+
+            <p id="txt"></p>
+        </section>
+    </main>
+
+    <script>
+        function enviar() {
+            var nome = document.getElementById('nome')
+            var sintomas = document.getElementById('lista')
+
+            var txt = document.getElementById('txt')
+            var obs = document.getElementById('obs')
+
+            var de = document.getElementById('de')
+
+            if(sintomas.value == 'Dor de cabeça'){
+                txt.style.display = 'block'
+                txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
+                obs.style.display ='none'
+            }
+
+            if(sintomas.value == 'Enjoo'){
+                txt.style.display = 'block'
+                txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
+                obs.style.display ='none'
+            }
+
+            if(sintomas.value == 'Vômito'){
+                txt.style.display = 'block'
+                txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
+                obs.style.display ='none'
+            }
+
+            if(sintomas.value == 'Febre'){
+                txt.style.display = 'block'
+                txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
+                obs.style.display ='none'
+            } else {
+                alert('NÃO INSISTA, JÁ TEMOS FILA !!!')
+            }
+
+        }
+    </script>
+</body>
+
+</html>
