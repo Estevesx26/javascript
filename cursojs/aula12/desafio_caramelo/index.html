@@ -156,26 +156,20 @@
                 txt.style.display = 'block'
                 txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
                 obs.style.display ='none'
-            }
-
-            if(sintomas.value == 'Enjoo'){
+            } else if(sintomas.value == 'Enjoo'){
                 txt.style.display = 'block'
                 txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
                 obs.style.display ='none'
-            }
-
-            if(sintomas.value == 'Vômito'){
+            } else if(sintomas.value == 'Vômito'){
                 txt.style.display = 'block'
                 txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
                 obs.style.display ='none'
-            }
-
-            if(sintomas.value == 'Febre'){
+            } else if(sintomas.value == 'Febre'){
                 txt.style.display = 'block'
                 txt.innerHTML =`Desculpe ${nome.value}, já tem alguém com <strong>${sintomas.value}</strong> na fila, volte mais tarde`
                 obs.style.display ='none'
             } else {
-                alert('NÃO INSISTA, JÁ TEMOS FILA !!!')
+                alert('NÃO ADIANTA, JÁ TEMOS FILA !!!')
             }
 
         }
