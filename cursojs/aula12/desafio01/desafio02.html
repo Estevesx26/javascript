@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        *{
+        * {
             margin: 0px;
             padding: 0px;
-
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        #layout{
-            background-color: aqua;
+        #layout {
+            background-color: rgb(95, 173, 242);
 
             height: 100vh;
 
@@ -24,65 +23,165 @@
             flex-direction: column;
         }
 
-        #home{
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        #container {
             background-color: white;
+
             padding: 20px;
+            margin-bottom: 20px;
             border-radius: 20px;
+
+            height: auto;
         }
 
-        .container{
+        div {
             margin-bottom: 15px;
         }
 
-        #enviar{
-            margin-bottom: 15px;
+        button {
+            padding: 5px;
+            border-radius: 8px;
+            background-color: lightslategray;
+            color: white;
         }
 
+        #title {
+            margin-bottom: 10px;
+        }
+
+        #container-txt-img {
+            display: none;
+        }
+
+        .txt-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        #txt {
+            margin-bottom: 20px;
+        }
+
+        #img {
+            background-image: url();
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            height: 200px;
+            width: 200px;
+
+            border-radius: 50%;
+        }
     </style>
 </head>
+
 <body>
     <main id="layout">
-        <h1>Verificador de Idade</h1>
-        <section id="home">
-            <div class="container">
-                <label for="data" class="container">Ano de nascimento:</label>
-                <input type="number" name="data" id="data">
+
+        <h1>Verificador de idade</h1>
+
+        <section id="container">
+            <form>
+                <div class="data">
+                    <label for="ano">Ano de Nascimento: </label>
+                    <input type="number" name="ano" id="ano" required>
+                </div>
+
+
+                <div class="sexo-masculino-feminino">
+                    <span>Sexo:</span>
+                    <label for="masculino">
+                        <input type="radio" name="sexo" id="masculino" required>
+                        Masculino:
+                    </label>
+                    <label for="feminino">
+                        <input type="radio" name="sexo" id="feminino" required>
+                        Feminino:
+                    </label>
+                </div>
+
+                <div class="btn">
+                    <button type="button" onclick="clicar()">Verificar</button>
+                </div>
+            </form>
+
+            <p id="title">Preencha os dados acima para ver o resultado!</p>
+
+            <div id="container-txt-img">
+                <div class="txt-img">
+                    <p id="txt"></p>
+                    <div id="img">
+                    </div>
+                </div>
             </div>
-
-            <div class="container">
-                <label for="sexo" class="container">Sexo:</label>
-                <input type="radio" name="sexo" id="masculino">Masculino
-                <input type="radio" name="sexo" id="feminino">Feminino
-            </div>
-
-            <input type="submit" value="Vereficar" id="enviar" onclick="clicar()">
-
-            <p id="txt">Preencha os dados acima para ver o resultado !</p>
         </section>
 
-        <p>@CursoemVídeo</p>
+        <p><i>@CursoemVídeo</i></p>
     </main>
 
     <script>
-        var n1 = window.document.getElementById('data')
-        var n1 = Number(n1.value)
+        function clicar() {
+            var n1 = document.getElementById('ano')
+            var m = document.getElementById('masculino')
+            var f = document.getElementById('feminino')
 
-        var sexo = window.document.getElementById('sexo')
-        var txt = window.document.getElementById('txt')
+            var title = document.getElementById('title')
+            var container = document.getElementById('container-txt-img')
+            var txt = document.getElementById('txt')
+            var img = document.getElementById('img')
 
-        var ano = new Date()
-        var n2 = ano.getFullYear()
-        
-        function clicar(){
-            var n1 = Number(data.value)
-            var soma = n2 - n1
+            var ano = new Date()
+            var n2 = ano.getFullYear()
 
-            if(n1 > n2){
-            window.alert('ERRO! Verifique os dados e tente novamente!')
-        } else {
-            txt.innerText = `Você tem ${soma} anos!`
-        }
+            var nascimento = Number(n1.value)
+            var idade = n2 - nascimento
+
+            if(idade >=0 && idade <= 13 && m.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/crianca-m.jpg')"
+                title.innerHTML = `Detectamos uma criança (H) com ${idade} anos.`
+            } else if(idade > 13 && idade <=24 && m.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/jovem-m.jpg')"
+                title.innerHTML = `Detectamos um jovem (H) com ${idade} anos.`
+            } else if(idade > 24 && idade <=59 && m.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/homem-m.jpg')"
+                title.innerHTML = `Detectamos um homem (H) com ${idade} anos.`
+            } else if(idade > 59 && m.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/idoso-m.jpg')"
+                title.innerHTML = `Detectamos um idoso (H) com ${idade} anos.`
+            } else if(idade > 0 && idade <=13 && f.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/crianca-f.jpg')"
+                title.innerHTML = `Detectamos uma criança (F) com ${idade} anos.`
+            } else if(idade > 13 && idade <=24 && f.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/jovem-f.jpg')"
+                title.innerHTML = `Detectamos uma mulher (F) com ${idade} anos.`
+            } else if(idade > 24 && idade <=59 && f.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/mulher-f.jpg')"
+                title.innerHTML = `Detectamos uma mulher (F) com ${idade} anos.`
+            } else if(idade > 59 && f.checked){
+                container.style.display = 'block'
+                img.style.backgroundImage = "url('img/idosa-f.jpg')"
+                title.innerHTML = `Detectamos uma idosa (F) com ${idade} anos.`
+            } else if(nascimento > n2){
+                title.innerHTML ='ERRO: Data Inválida!'
+            }
+
         }
     </script>
 </body>
+
 </html>
