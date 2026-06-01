@@ -71,7 +71,7 @@
 
         #img {
             background-image: url();
-            background-position: center;
+            background-position: top center;
             background-repeat: no-repeat;
             background-size: cover;
 
@@ -178,6 +178,7 @@
                 title.innerHTML = `Detectamos uma idosa (F) com ${idade} anos.`
             } else if(nascimento > n2){
                 title.innerHTML ='ERRO: Data Inválida!'
+                img.style.display = 'none'
             }
 
         }
