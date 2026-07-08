@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    background-color: darkcyan;
+    color: white;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    padding: 20px;
+}
+
+.caixa{
+    background-color: white;
+    color: black;
+
+    width: clamp(250px, 70vw, 600px);
+    padding: 20px;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containers{
+    margin: 1px;
+    padding-bottom: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    color: black;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: clamp(180px, 50vw, 400px);
+}
+
+#btn{
+    padding: 5px;
+    width: 100px;
+}
+
+span{
+    padding: 10px
+}
+
+p{
+    padding: 20px;
+}
