@@ -1,9 +1,19 @@
-function clicar(){
-    var inicial = Number.parseFloat(document.getElementById('inicio').value)
-    var fim = Number.parseFloat(document.getElementById('fim').value)
-    var passo = Number.parseFloat(document.getElementById('passo').value)
+function clicar() {
+    var inicio = document.getElementById('inicio')
+    var fim = document.getElementById('fim')
+    var passo = document.getElementById('passo')
     var btn = document.getElementById('btn')
     var txt = document.getElementById('txt')
 
+    if (inicio.value == "" || fim.value == "" || passo.value == "") {
+        alert('Preencha todos os campos...')
+    } else {
+        var inicial = Number.parseFloat(inicio.value)
+        var final = Number.parseFloat(fim.value)
+        var passos = Number.parseFloat(passo.value)
 
+        for(var resultoi = inicial; resultoi <= final; resultoi += passos ){
+            txt.innerHTML += `${resultoi}`
+        }
+    }
 }
