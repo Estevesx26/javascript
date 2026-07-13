@@ -4,6 +4,7 @@ function clicar() {
     var passo = document.getElementById('passo')
     var btn = document.getElementById('btn')
     var txt = document.getElementById('txt')
+    var res = document.getElementById('txt-res')
 
     if (inicio.value == "" || fim.value == "" || passo.value == "") {
         alert('Preencha todos os campos...')
@@ -13,7 +14,9 @@ function clicar() {
         var passos = Number.parseFloat(passo.value)
 
         for(var resultoi = inicial; resultoi <= final; resultoi += passos ){
-            txt.innerHTML += `${resultoi}`
+            txt.style.display = 'none'
+            res.style.display = 'block'
+            res.innerHTML +=`${resultoi} → `
         }
     }
 }
