@@ -13,10 +13,18 @@ function clicar() {
         var final = Number.parseFloat(fim.value)
         var passos = Number.parseFloat(passo.value)
 
+        res.innerHTML += " "
+
         for(var resultoi = inicial; resultoi <= final; resultoi += passos ){
             txt.style.display = 'none'
             res.style.display = 'block'
             res.innerHTML +=`${resultoi} → `
         }
+
+        res.innerHTML += `FIM`
+    }
+
+    if (inicial <= final.value) {
+        alert ('Valor final menor q valor inicial')
     }
 }
