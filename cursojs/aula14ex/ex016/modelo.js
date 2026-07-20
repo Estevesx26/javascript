@@ -13,7 +13,17 @@ function clicar() {
         var final = Number.parseFloat(fim.value)
         var passos = Number.parseFloat(passo.value)
 
-        res.innerHTML += " "
+        if (inicial > final) {
+            alert('O valor INICIAL não pode ser maior que o valor FINAL!')
+            return
+        }
+
+        if (passos > final) {
+            alert('O valor do PASSO não pode ser maior que o valor FINAL !')
+            return
+        }
+
+        res.innerHTML = ""
 
         for(var resultoi = inicial; resultoi <= final; resultoi += passos ){
             txt.style.display = 'none'
@@ -22,9 +32,5 @@ function clicar() {
         }
 
         res.innerHTML += `FIM`
-    }
-
-    if (inicial <= final.value) {
-        alert ('Valor final menor q valor inicial')
     }
 }
